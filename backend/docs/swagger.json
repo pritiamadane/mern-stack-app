@@ -1,0 +1,70 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "version": "1.0.0",
+      "title": "MERN Stack Transaction API",
+      "description": "API documentation for MERN stack project"
+  },
+  "host": "localhost:5000",
+  "basePath": "/api/v1",
+  "schemes": ["http"],
+  "paths": {
+      "/product/initialize-seed-data": {
+          "get": {
+              "summary": "Initialize the database",
+              "responses": {
+                  "200": {
+                      "description": "Database initialized successfully"
+                  }
+              }
+          }
+      },
+      "/product": {
+          "get": {
+              "summary": "List Products",
+              "parameters": [
+                  { "name": "month", "in": "query", "required": true, "type": "string" },
+                  { "name": "page", "in": "query", "required": false, "type": "integer", "default": 1 },
+                  { "name": "perPage", "in": "query", "required": false, "type": "integer", "default": 10 },
+                  { "name": "search", "in": "query", "required": false, "type": "string" }
+              ],
+              "responses": {
+                  "200": { "description": "List of products" }
+              }
+          }
+      },
+      "/analytics/statistics": {
+          "get": {
+              "summary": "Get Statistics",
+              "parameters": [
+                  { "name": "month", "in": "query", "required": true, "type": "string" }
+              ],
+              "responses": {
+                  "200": { "description": "Statistics data" }
+              }
+          }
+      },
+      "/analytics/bar-chart": {
+          "get": {
+              "summary": "Get Bar Chart Data",
+              "parameters": [
+                  { "name": "month", "in": "query", "required": true, "type": "string" }
+              ],
+              "responses": {
+                  "200": { "description": "Bar chart data" }
+              }
+          }
+      },
+      "/analytics/pie-chart": {
+          "get": {
+              "summary": "Get Pie Chart Data",
+              "parameters": [
+                  { "name": "month", "in": "query", "required": true, "type": "string" }
+              ],
+              "responses": {
+                  "200": { "description": "Pie chart data" }
+              }
+          }
+      }
+  }
+}
